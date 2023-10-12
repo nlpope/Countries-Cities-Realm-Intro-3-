@@ -24,7 +24,6 @@ struct Realm_Intro_3App: App {
                 
             }
             .onAppear {
-                print("testing")
                 print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
