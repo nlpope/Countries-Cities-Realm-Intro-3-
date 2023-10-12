@@ -1,5 +1,5 @@
 //
-//  Migrator.swift
+//  RealmManager.swift
 //  Realm Intro-2
 //
 //  Created by Stewart Lynch on 2022-03-08.
@@ -8,12 +8,13 @@
 import Foundation
 import RealmSwift
 
-class Migrator {
-    init() {
-        updateSchema()
+class RealmManager {
+    private(set) var realm: Realm?
+    init(name: String) {
+        initializeSchema(name: name)
     }
     
-    func updateSchema() {
+    func initializeSchema(name: String) {
         let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 migration.enumerateObjects(ofType: Country.className()) { _, newObject in
@@ -22,7 +23,10 @@ class Migrator {
             }
         }
         Realm.Configuration.defaultConfiguration = config
-        let _ = try! Realm()
-        
+        do {
+            realm = try Realm()
+        } catch {
+            print("error loading default Realm:", error)
+        }
     }
 }

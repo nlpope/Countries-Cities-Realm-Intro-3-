@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Realm_Intro_3App: App {
-    let migrator = Migrator()
+    let migrator = RealmManager()
     var body: some Scene {
         WindowGroup {
             TabView {
