@@ -24,7 +24,7 @@ struct Realm_Intro_3App: App {
                 
             }
             .onAppear {
-                print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
+//                print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
         }
@@ -72,7 +72,17 @@ struct Realm_Intro_3App: App {
  --------------------------
 10.12
  restarting w fresh Lynch download starter - simulator was misbehaving for an unfamiliar error
-
+ 
+ --------------------------
+10.13
+ see RealmManager
+ let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+ let realmFileUrl = docDir.appendingPathComponent("\(name).realm")
+ //gives each back-end realm instance we create a unique name id appended to the default realm file url path
+ 
+ print(docDir.path)
+ deleted: print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
+ // since we're printing each realm instance's unique path in RealmManager, we've deleted the OG, more generic print statemnent from AppEntry
  
  --------------------------
  */

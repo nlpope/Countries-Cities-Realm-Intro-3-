@@ -15,6 +15,9 @@ class RealmManager {
     }
     
     func initializeSchema(name: String) {
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let realmFileUrl = docDir.appendingPathComponent("\(name).realm")
+        //see notes
         let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 migration.enumerateObjects(ofType: Country.className()) { _, newObject in
@@ -23,6 +26,7 @@ class RealmManager {
             }
         }
         Realm.Configuration.defaultConfiguration = config
+        print(docDir.path)
         do {
             realm = try Realm()
         } catch {
