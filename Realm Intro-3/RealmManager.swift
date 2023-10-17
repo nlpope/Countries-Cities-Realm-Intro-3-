@@ -17,7 +17,6 @@ class RealmManager: ObservableObject {
     func initializeSchema(name: String) {
         let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let realmFileUrl = docDir.appendingPathComponent("\(name).realm")
-        //see notes
         let config = Realm.Configuration(fileURL: realmFileUrl, schemaVersion: 1) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 migration.enumerateObjects(ofType: Country.className()) { _, newObject in
@@ -26,9 +25,9 @@ class RealmManager: ObservableObject {
             }
         }
         Realm.Configuration.defaultConfiguration = config
-        print(docDir.path)
+        print("docDir path = ",docDir.path)
         do {
-            realm = try Realm()
+            realm = try  Realm()
         } catch {
             print("error loading default Realm:", error)
         }

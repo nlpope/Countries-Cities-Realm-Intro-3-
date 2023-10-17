@@ -99,6 +99,9 @@ struct Realm_Intro_3App: App {
  crashing - getting file not found error when running realm schema versions 1 & 2
  i even changed the default filepath name to example3 in my finder, still nada.
  
+ 10.17
+ freed up storage space but app still crashing at the try! in the SwiftUI file - what's going on?
+ 
  
  --------------------------
  */
