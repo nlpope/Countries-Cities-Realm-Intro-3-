@@ -103,5 +103,7 @@ struct Realm_Intro_3App: App {
  freed up storage space but app still crashing at the try! in the SwiftUI file - what's going on?
  testing new token
  
+ kinda working - changed RealmManager name to "exampleTRee". what was wrong w "example3?"
+ 
  --------------------------
  */
