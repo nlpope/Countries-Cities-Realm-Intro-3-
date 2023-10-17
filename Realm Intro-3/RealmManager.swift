@@ -16,6 +16,7 @@ class RealmManager: ObservableObject {
     
     func initializeSchema(name: String) {
         let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        //problem child below? option click appendingPathComponent
         let realmFileUrl = docDir.appendingPathComponent("\(name).realm")
         let config = Realm.Configuration(fileURL: realmFileUrl, schemaVersion: 1) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {

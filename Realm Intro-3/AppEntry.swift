@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Realm_Intro_3App: App {
-    @StateObject var realmManager = RealmManager(name: "example3")
+    @StateObject var realmManager = RealmManager(name: "exampleTRee")
     var body: some Scene {
         WindowGroup {
             TabView {
