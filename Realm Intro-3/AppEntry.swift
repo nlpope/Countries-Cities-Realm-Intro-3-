@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Realm_Intro_3App: App {
-    @StateObject var realmManager = RealmManager(name: "exampleTRee")
+    @StateObject var realmManager = RealmManager(name: "exampleThree")
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -104,6 +104,11 @@ struct Realm_Intro_3App: App {
  testing new token
  
  kinda working - changed RealmManager name to "exampleTRee". what was wrong w "example3?"
+ 
+ 10.18
+ "try!" error - problem solved when below isn't named "example3" -  not entirely sure why
+ @StateObject var realmManager = RealmManager(name: "example3")
+
  
  --------------------------
  */
